@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PeliculaCartService } from '../pelicula-cart.service';
 import { Pelicula } from './Pelicula';
 
 @Component({
@@ -13,7 +14,7 @@ export class PeliculaListComponent implements OnInit {
     name: "Batman",
     genero: "Accion",
     estreno : 25,
-    disponible: true,
+    disponible: 10,
     reserva : 0,
   },
   {
@@ -21,37 +22,30 @@ export class PeliculaListComponent implements OnInit {
     name: "Spiderman",
     genero: "Aaventur",
     estreno : 20,
-    disponible: false,
+    disponible: 5,
     reserva : 0,
   }, 
   {
     img:"assets/img/batman_mini.jpeg",
     name: "Titanic",
     genero: "Romantica",
-    estreno : 0,
-    disponible: false,
+    estreno :21,
+    disponible: 0,
     reserva : 0,
   }
   ];
-  constructor() { }
+
+
+  constructor(private cart: PeliculaCartService) {
+   }
 
   ngOnInit(): void {
   }
 
-  upReserva(pelicula: Pelicula): void{
-    if (pelicula.estreno){
-          pelicula.reserva++;
-      }
-  }
-
-  downReserva(pelicula: Pelicula): void{
-    if (pelicula.reserva > 0){
-      pelicula.reserva--;
-    }
-  }
-
-  changeReserva(event, pelicula: Pelicula): void{
-    console.log(event.key);
-  }
+addToCart(pelicula): void{
+  this.cart.addToCart(pelicula);
+  pelicula.disponible-= pelicula.reserva;
+  pelicula.reserva = 0;
+}
 
 }

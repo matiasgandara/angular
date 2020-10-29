@@ -1,1 +1,6 @@
 <h3>carrito works!</h3>
+<ul>
+    <li *ngFor="let pelicula of (cartList$ | async)">
+        {{pelicula.name}}: {{pelicula.disponible}} 
+    </li>
+</ul>

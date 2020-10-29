@@ -3,6 +3,6 @@ export interface Pelicula{
     img: string,
     genero: string,
     estreno : number,
-    disponible : boolean;
+    disponible : number;
     reserva : number;
 }

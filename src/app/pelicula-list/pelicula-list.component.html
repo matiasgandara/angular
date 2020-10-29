@@ -6,20 +6,20 @@
             <th>Nombre</th>
             <th>Genero</th>
             <th>Fecha</th>
+            <th>Diponibles</th>
             <th>Reserva</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor = "let pelicula of peliculas" [ngClass]="{'disponible': pelicula.disponible}">
-            <td><img width="90" [src]="pelicula.img" [alt]="pelicula.nombre"></td>
+            <td><img width="90" [src]="pelicula.img" [alt]="pelicula.name"></td>
             <td>{{pelicula.name}}</td>
             <td>{{pelicula.genero}}</td>
-            <td ><span class="badge badge-warning" *ngIf="pelicula.estreno == 0">COMINGSOON</span></td>
-            <td><button class="btn btn-primary btn-sm" (click)="downReserva(pelicula)">-</button>
-                <input type="number"
-                 [(ngModel)] = "pelicula.reserva"
-                 (keyup)="changeReserva($event, pelicula)"> 
-                <button class="btn btn-primary btn-sm" (click)="upReserva(pelicula)">+</button>
+            <td>{{pelicula.estreno}}</td>
+            <td ><span class="badge badge-warning" *ngIf="pelicula.disponible == 0">COMINGSOON</span></td>
+            <td>
+                <app-input-integer [(quantity)]="pelicula.reserva" [max]="pelicula.disponible" *ngIf="pelicula.disponible"></app-input-integer>
+                <button class="btn" (click) = "addToCart(pelicula)">Comprar</button>
             </td>
         </tr>
     </tbody>
