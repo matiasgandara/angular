@@ -21,9 +21,9 @@
             </td>
             <td >
                 <span *ngIf="pelicula.disponible > 0">{{pelicula.disponible}} </span>
-                <span class="badge bg-danger text-white" *ngIf="pelicula.disponible == 0">AGOTADAS</span></td>
+                <span class="badge bg-danger text-white" *ngIf="pelicula.disponible == 0 && pelicula.estreno != ''">AGOTADAS</span></td>
             <td>
-                <app-input-integer (quantityChange)="reservar($event)" [max]="pelicula.disponible" quantity=0 *ngIf="pelicula.disponible"></app-input-integer>
+                <app-input-integer (quantityChange)="reservar($event)" [max]="pelicula.disponible" [(quantity)]="pelicula.reserva" *ngIf="pelicula.disponible"></app-input-integer>
                 <button class="btn" (click) = "addToCart(pelicula)">Comprar</button>
             </td>
         </tr>

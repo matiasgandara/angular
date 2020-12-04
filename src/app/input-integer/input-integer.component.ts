@@ -14,6 +14,7 @@ export class InputIntegerComponent implements OnInit {
   @Input()
   quantity: number;
 
+
   @Input()
   max: number;
 
@@ -38,7 +39,6 @@ export class InputIntegerComponent implements OnInit {
   }
 
   changeQuantity(event): void{
-    console.log(event.key);
     this.quantityChange.emit(this.quantity);
     this.quantity = 0;
   }

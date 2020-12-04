@@ -18,7 +18,7 @@ export class PeliculasService {
       reserva: 0,
     },
     {
-      img: "assets/img/batman_mini.jpeg",
+      img: "assets/img/spiderman2.jpg",
       name: "Spiderman",
       genero: "Aventura",
       estreno: "08/08/2020",
@@ -26,7 +26,7 @@ export class PeliculasService {
       reserva: 0,
     },
     {
-      img: "assets/img/batman_mini.jpeg",
+      img: "assets/img/titanic2.jpg",
       name: "Titanic",
       genero: "Romantica",
       estreno: "",

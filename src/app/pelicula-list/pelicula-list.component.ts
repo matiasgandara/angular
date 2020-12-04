@@ -25,6 +25,7 @@ export class PeliculaListComponent implements OnInit {
     pelicula.disponible -= this.reserva;
     this.cart.addToCart(pelicula, this.reserva);
     this.reserva = 0;
+    pelicula.reserva = 0;
   }
 
   reservar(e) {
